@@ -6,13 +6,13 @@ let currentColor = STANDARD_COLOR;
 let currentMode = STANDARD_MODE;
 let currentSize = STANDARD_SIZE;
 
-function setCurrentColor (newColor) {
+function setCurrentColor(newColor) {
     currentColor = newColor;
 }
 
-function setCurrentMode (newMode) {
+function setCurrentMode(newMode) {
     activateButton(newMode);
-    currentMode = newMode ;
+    currentMode = newMode;
 }
 
 function setCurrentSize(newSize) {
@@ -25,3 +25,47 @@ const colorBtn = document.getElementById('color');
 const clearBtn = document.getElementById('clear');
 const eraserBtn = document.getElementById('eraser');
 const colorfulBtn = document.getElementById('colorful');
+const gridValue = document.getElementById('gridValue');
+const gridSlider = document.getElementById('gridSlider');
+const grid = document.getElementById('grid');
+
+
+function changeSize(value) {
+    setCurrentSize(value);
+    updateCurrentSize(value);
+    reloadGrid(value);
+}
+
+function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`;
+}
+
+
+function reloadGrid() {
+    clearGrid();
+    setupGrid(currentSize);
+}
+
+function clearGrid() {
+    grid.innerHTML = '';
+}
+
+function setupGrid(size) {
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+    for (let i = 0; i < size * size; i++) {
+        const gridElement = document.createElement('div');
+        gridElement.classList.add('grid-element');
+        gridElement.addEventListener('mouseover', changeColor);
+        gridElement.addEventListener('mousedown', changeColor);
+        grid.appendChild(gridElement);
+    }
+}
+
+function changeColor(e) {
+    if (e.type === 'mouseover' && !mousedown) return
+    if (currentMode = "colorful") {
+        
+    }
+}
