@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&family=Odibee+Sans&family=Open+Sans:wght@300;400;500&display=swap');
+
+
+:root {
+    --background-color: #eae7dc;
+    --text-color: #8e8d8a;
+    --buttons-clr: #e98074;
+    --btn-border-clr: #e85a4f;
+}
+
+* {
+    background-color: var(--background-color);
+    font-family: 'Coming Soon', cursive;
+    margin: 0;
+    padding: 0;
+}
+
+header .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.50rem;
+    color: var(--text-color);
+    padding: 1.25rem;
+    
+
+}
+
+/*main, setting and buttons */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 200px;
+    
+    margin: 30px;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 200px;
+}
+
+

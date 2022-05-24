@@ -8,6 +8,29 @@
     <title>Etch-a-Sketch </title>
 </head>
 <body>
+    <!--the title part-->
+    <header class="header">
+        <h1 class="title">Etch-a-Sketch</h1>
+    </header>
+
+    <!--the settings part(colors, eraser, grid, etc)-->
+
+    <main class="main">
+        <div class="settings">
+            <input type="color" id="color-selector" value="#333333" >
+            <button id="color" >Color</button>
+            <button id="clear">Clear</button>
+            <button id="eraser">Erase</button>
+            <button class="colorful">Colorful Mode</button>
+            <div id="gridValue" class="grid-value">16x16</div>
+            <input type="range" id="gridSlider" value="16" min="1" max="64">
+        </div>
+        <div id="grid" class="grid"></div>
+    </main>
+
+    <!--the footer-->
+    <footer class="footer"></footer>
+        <p>Made by Mugurel03</p> 
     <script src="app.js"></script>
 </body>
 </html>
