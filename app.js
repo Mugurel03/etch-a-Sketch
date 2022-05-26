@@ -30,6 +30,10 @@ const gridSlider = document.getElementById('gridSlider');
 const grid = document.getElementById('grid');
 
 
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
+
 function changeSize(value) {
     setCurrentSize(value);
     updateCurrentSize(value);
@@ -66,6 +70,38 @@ function setupGrid(size) {
 function changeColor(e) {
     if (e.type === 'mouseover' && !mousedown) return
     if (currentMode = "colorful") {
-        
+        const randomR = Math.floor(Math.random() * 256);
+        const randomG = Math.floor(Math.random() * 256);
+        const randomB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+    }else if (currentMode === 'color') {
+        e.target.style.backgroundColor = currentColor;
+    }else if (currentMode === 'eraser') {
+        e.target.style.backgroundColor = `#fefefe`;
     }
+}
+
+function activateButton(newMode) {
+    if (currentMode === "colorful") {
+        colorBtn.classList.remove('active');
+    }else if (currentMode === 'color') {
+        colorBtn.classList.remove('active');
+    }else if (currentMode === 'eraser') {
+        eraserBtn.classList.remove('active');
+    }
+
+
+    if (newMode === 'colorful') {
+        colorBtn.classList.add('active');
+    }else if (newMode === 'color') {
+        colorBtn.classList.add('active');
+    }else if (newMode === 'eraser') {
+        eraserBtn.classList.add('active');
+    }
+}
+
+
+window.onload = () => {
+    setupGrid(DEFAULT_SIZE);
+    activateButton(DEFAULT_MODE);
 }
